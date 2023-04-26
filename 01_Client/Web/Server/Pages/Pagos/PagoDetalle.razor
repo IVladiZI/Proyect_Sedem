@@ -1,0 +1,36 @@
+﻿@page "/Cliente/Pago"
+@using Aplicacion.DTOs.Cliente
+@using Infraestructura.Models
+@inherits MainBaseComponent
+@layout MainLayout
+@inject IJSRuntime JSRuntime
+
+<MudExpansionPanels>
+    <MudCard>
+        <EditForm OnValidSubmit="ClientePagoNuevo" Model="_fcClientePagoDto">
+            <MudDialog>
+                <DialogContent>
+                    <DataAnnotationsValidator />
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem xs="12" sm="6" md="6">
+                                <MudTextField @bind-Value="_fcClientePagoDto.Detalle" For="@(() => _fcClientePagoDto.Detalle)" Label="Detalle Empresa" Disabled="true" Variant="Variant.Outlined" Margin="Margin.Dense">@_fcClientePagoDto.Detalle</MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="6">
+                                <MudTextField @bind-Value="_fcClientePagoDto.Monto" For="@(() => _fcClientePagoDto.Monto)" Label="Monto a cancelar" Disabled="true"  Variant="Variant.Outlined" Margin="Margin.Dense">@_fcClientePagoDto.Monto Bs</MudTextField>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="6">
+                                <MudTextField @bind-Value="_fcClientePagoDto.Glosa" For="@(() => _fcClientePagoDto.Glosa)" Label="Detalle Glosa" Variant="Variant.Outlined" Margin="Margin.Dense">@_fcClientePagoDto.Glosa</MudTextField>
+                            </MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+                    @* </DataAnnotationsValidator>*@
+                </DialogContent>
+                <DialogActions>
+                    <MudButton OnClick="Cancel">Cancel</MudButton>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success">Guardar</MudButton>
+                </DialogActions>
+            </MudDialog>
+        </EditForm>
+    </MudCard>
+</MudExpansionPanels>

@@ -1,0 +1,57 @@
+﻿@page "/Cliente/PagoReporte"
+@using Aplicacion.DTOs.Cliente
+@using Infraestructura.Models
+@inherits MainBaseComponent
+@layout MainLayout
+@inject IJSRuntime JSRuntime
+
+
+<MudExpansionPanels>
+    <MudCard>
+        <MudDialogProvider FullWidth="true"
+                   MaxWidth="MaxWidth.ExtraSmall"
+                   CloseButton="true"
+                   DisableBackdropClick="true"
+                   NoHeader="true"
+                   Position="DialogPosition.Center"
+                   CloseOnEscapeKey="true" />
+        <MudDialog>
+            <DialogContent>
+                <MudCardContent>
+                    <MudTable Items="@fcClientePagos" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped">
+                        <HeaderContent>
+                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.IdfcClientePago)"> Nr° </MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Detalle)">Detalle Pago</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Glosa)">Glosa</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Monto)">Monto Cancelado</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.FechaPago)">Fecha de Pago</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Estado)">Estado de Pago</MudTableSortLabel></MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd Style="width:40px">
+                                <MudText Typo="Typo.caption">@context.IdfcClientePago</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Detalle</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Glosa</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Monto</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.FechaPago</MudText><br />
+                            </MudTd>
+                            <MudTd>
+                                <MudText Typo="Typo.caption">@context.Estado</MudText><br />
+                            </MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                </MudCardContent>
+            </DialogContent>
+            <DialogActions>
+            </DialogActions>
+        </MudDialog>
+    </MudCard>
+</MudExpansionPanels>
