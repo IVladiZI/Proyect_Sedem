@@ -84,4 +84,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Qr\Services\" />
+    <Folder Include="Interfaces\Services\" />
+  </ItemGroup>
+
 </Project>
