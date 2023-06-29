@@ -21,7 +21,7 @@ namespace Aplicacion.Mappings
             CreateMap<FcCliente, FcClienteDto>();
             CreateMap<FcClientePago, FcClientePagoDto>();
             CreateMap<FcSucursal, FcSucursalDto>();
-            CreateMap<QrCliente, QrClienteDto>();
+            CreateMap<FcQr, QrClienteDto>();
             /**///**
             #endregion
 
@@ -30,7 +30,7 @@ namespace Aplicacion.Mappings
             CreateMap<FcClienteDto, FcCliente>();
             CreateMap<FcClientePagoDto, FcClientePago>();
             CreateMap<FcSucursalDto, FcSucursal>();
-            CreateMap<QrClienteDto, QrCliente>();
+            CreateMap<QrClienteDto, FcQr>();
             #endregion
 
         }

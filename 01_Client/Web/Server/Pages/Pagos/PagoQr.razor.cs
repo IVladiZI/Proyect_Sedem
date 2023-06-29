@@ -1,4 +1,4 @@
-﻿namespace Server.Pages.Pagos.PagoQr
+namespace Server.Pages.Pagos
 {
     public partial class PagoQr
     {

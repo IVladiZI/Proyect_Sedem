@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ServicesUniQr\ServicesUniQr.csproj" />
     <ProjectReference Include="..\..\Core\Aplicacion\Aplicacion.csproj" />
     <ProjectReference Include="..\..\Infraestructura\Identity\Identity.csproj" />
     <ProjectReference Include="..\..\Infraestructura\Persistencia\Persistencia.csproj" />

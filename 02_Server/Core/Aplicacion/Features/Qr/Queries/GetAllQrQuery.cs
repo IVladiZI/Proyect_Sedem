@@ -20,9 +20,9 @@ namespace Aplicacion.Features.Qr.Queries
     {
         public class GetAllQrQueryHandler : IRequestHandler<GetAllQrQuery, Response<List<QrClienteDto>>>
         {
-            private readonly IRepositoryAsync<QrCliente> _repositoryAsync;
+            private readonly IRepositoryAsync<FcQr> _repositoryAsync;
             private readonly IMapper _mapper;
-            public GetAllQrQueryHandler(IRepositoryAsync<QrCliente> repositoryAsync, IMapper mapper)
+            public GetAllQrQueryHandler(IRepositoryAsync<FcQr> repositoryAsync, IMapper mapper)
             {
                 _repositoryAsync = repositoryAsync;
                 _mapper = mapper;

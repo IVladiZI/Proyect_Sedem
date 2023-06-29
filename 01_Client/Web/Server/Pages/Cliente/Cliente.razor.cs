@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using State = Infraestructura.Abstract.State;
 
+
 namespace Server.Pages.Cliente
 {
     public partial class Cliente
@@ -20,7 +21,6 @@ namespace Server.Pages.Cliente
         private bool hover = true;
         private bool striped = true;
         private bool bordered = true;
-        
 
         protected override async void OnInitialized()
         {
@@ -156,7 +156,11 @@ namespace Server.Pages.Cliente
             try
             {
                 dialogParameters.Add("fcClienteDto",fcClienteDto);
-                var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+                var options = new DialogOptions() {
+                    MaxWidth = MaxWidth.Medium,
+                    FullWidth = true,
+                    Position = DialogPosition.TopCenter
+                };
                 DialogService.Show<PagoDetalle>("Detalle Pago", dialogParameters, options);
             }
             catch (Exception ex)

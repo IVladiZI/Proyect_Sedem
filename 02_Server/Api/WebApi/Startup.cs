@@ -9,7 +9,7 @@ using Microsoft.OpenApi.Models;
 using Persistencia;
 using Shared;
 using Webapi.Extensions;
-
+using ServicesUniQr;
 namespace Webapi
 {
 
@@ -45,8 +45,7 @@ namespace Webapi
             services.AddPersistenciaInfraestructura(Configuration);
             services.AddSharedInfraestructura(Configuration);
             services.AddApiVersioningExtension();
-
-            
+            services.AddUniQr(Configuration);
 
             services.AddSwaggerGen(c =>
             {

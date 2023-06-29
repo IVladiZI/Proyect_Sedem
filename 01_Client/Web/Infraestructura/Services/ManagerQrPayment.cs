@@ -18,7 +18,7 @@ namespace Infraestructura.Services
             _localStorageService = localStorageService;
         }
 
-        public Task<ResponseEntity<T>> PostAsync<T>(string pControlador, QrPaymentRequest qrPaymentRequest)
+        public Task<ResponseEntity<T>> PostAsync<T>(string pControlador, object parametros)
         {
             throw new NotImplementedException();
         }

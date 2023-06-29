@@ -1,16 +1,13 @@
 ﻿using Dominio.Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Serialization;
 
 namespace Dominio.Entities.Qr
 {
     [Table("qr_cliente", Schema = "public")]
-    public class QrCliente : AuditableBaseEntity
+    public class FcQr : AuditableBaseEntity
     {
         [Key]
         public int IdqrCliente { get; set; }
@@ -20,5 +17,11 @@ namespace Dominio.Entities.Qr
         public decimal QrMonto { get; set; }
         public DateTime? QrExpiracion { get; set; }
         public string QrEstado { get; set; }
+    }
+    public class FcQrGenerate
+    {
+        public int IdCliente { get; set; }
+        public decimal Monto { get; set; }
+        public string Glosa { get; set; }
     }
 }
