@@ -9,6 +9,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
 
   <ItemGroup>

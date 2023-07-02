@@ -5,32 +5,39 @@
 @layout MainLayout
 @inject IJSRuntime JSRuntime
 
-<MudExpansionPanels>
-    <MudCard>
-        <EditForm OnValidSubmit="ClientePagoNuevo" Model="_fcClientePagoDto">
-            <MudDialog>
+<div id="content">
+    <MudDialog DisableSidePadding="true">
                 <DialogContent>
-                    <DataAnnotationsValidator />
+            <MudContainer Style="max-height: 500px; overflow-y: scroll">
+                <MudForm @ref="moudFormQrPay" Model="fcQrClienteDto">
                     <MudCardContent>
                         <MudGrid>
                             <MudItem xs="12" sm="6" md="6">
-                                <MudTextField @bind-Value="_fcClientePagoDto.Detalle" For="@(() => _fcClientePagoDto.Detalle)" Label="Detalle Empresa" Disabled="true" Variant="Variant.Outlined" Margin="Margin.Dense">@_fcClientePagoDto.Detalle</MudTextField>
+                                <MudTextField @bind-Value="fcQrClienteDto.QrGlosa" For="@(() => fcQrClienteDto.QrGlosa)" Label="Detalle Empresa" Disabled="true" Variant="Variant.Outlined" Margin="Margin.Dense">@fcQrClienteDto.QrGlosa</MudTextField>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="6">
-                                <MudTextField @bind-Value="_fcClientePagoDto.Monto" For="@(() => _fcClientePagoDto.Monto)" Label="Monto a cancelar" Disabled="true"  Variant="Variant.Outlined" Margin="Margin.Dense">@_fcClientePagoDto.Monto Bs</MudTextField>
+                                <MudTextField @bind-Value="fcQrClienteDto.QrMonto" For="@(() => fcQrClienteDto.QrMonto)" Label="Monto a cancelar" Disabled="true" Variant="Variant.Outlined" Margin="Margin.Dense">@fcQrClienteDto.QrMonto Bs</MudTextField>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="6">
-                                <MudTextField @bind-Value="_fcClientePagoDto.Glosa" For="@(() => _fcClientePagoDto.Glosa)" Label="Detalle Glosa" Variant="Variant.Outlined" Margin="Margin.Dense">@_fcClientePagoDto.Glosa</MudTextField>
+                                <MudTextField @bind-Value="fcQrClienteDto.QrGlosa" For="@(() => fcQrClienteDto.QrGlosa)" Label="Detalle Glosa" Variant="Variant.Outlined" Margin="Margin.Dense">@fcQrClienteDto.QrGlosa</MudTextField>
                             </MudItem>
+                            <MudDivider DividerType="DividerType.Middle" Class="my-6" />
+                            <MudFab Color="Color.Secondary" StartIcon="@Icons.Material.Filled.QrCode2" @onclick="@(async ()=> await QrPayment())" Label="Pago mediante QR" one />
+                            @if (!string.IsNullOrEmpty(QRCodeText))
+                            {
+                                <MudPaper MaxHeight="auto" Style="margin:auto">
+                                    <div class="qr-container">
+                                        <img width="250" height="250" src="@QRCodeText">
+                                    </div>
+                                </MudPaper>
+                            }
                         </MudGrid>
                     </MudCardContent>
-                    @* </DataAnnotationsValidator>*@
+                </MudForm>
+            </MudContainer>
                 </DialogContent>
                 <DialogActions>
-                    <MudButton OnClick="Cancel">Cancel</MudButton>
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success">Guardar</MudButton>
+            <MudButton OnClick="Cancel" Color="Color.Info">Cancel</MudButton>
                 </DialogActions>
             </MudDialog>
-        </EditForm>
-    </MudCard>
-</MudExpansionPanels>
+</div>

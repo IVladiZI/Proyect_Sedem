@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Dominio.Common;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Aplicacion.DTOs.Qr
+namespace Dominio.Entities.Qr
 {
-    public class QrClienteDto
+    [Table("qr_cliente", Schema = "public")]
+    public class FcQrCliente : AuditableBaseEntity
     {
+        [Key]
         public int IdqrCliente { get; set; }
+        //[ForeignKey("IdfcCliente")]
         public int IdfcCliente { get; set; }
         public string QrGlosa { get; set; }
         public decimal QrMonto { get; set; }

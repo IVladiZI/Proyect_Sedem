@@ -32,11 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\02_Server\Core\Aplicacion\Aplicacion.csproj" />
-    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Resources\Pages\Authentication\Login\Resource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -71,6 +66,11 @@
   <ItemGroup>
     <Folder Include="Resources\Aplicacion\" />
     <Folder Include="wwwroot\Documentos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\02_Server\Core\Aplicacion\Aplicacion.csproj" />
+    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj" />
   </ItemGroup>
 
 </Project>

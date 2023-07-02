@@ -30,6 +30,7 @@ namespace Infraestructura.Extensions
             #region Validadores
             services.AddTransient<IValidator<LoginRequest>, LoginValidator>();
             services.AddScoped<ManagerRest>();
+            services.AddScoped<ManagerQrPayment>();
             #endregion
 
             return services;

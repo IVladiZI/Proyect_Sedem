@@ -4,22 +4,14 @@ using Aplicacion.Wrappers;
 using AutoMapper;
 using Dominio.Entities;
 using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Aplicacion.Features.Sucursal.Queries
 {
-
-
     public class GetAllSucursalQuery : IRequest<Response<List<FcSucursalDto>>>
     {
-    
-
-
         public class GetAllSucursalQueryHandler : IRequestHandler<GetAllSucursalQuery, Response<List<FcSucursalDto>>>
         {
             private readonly IRepositoryAsync<FcSucursal> _repositoryAsync;

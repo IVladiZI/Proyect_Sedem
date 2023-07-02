@@ -1,9 +1,5 @@
 ﻿using Aplicacion.Features.Cliente.Commands;
 using Aplicacion.Features.Cliente.Queries;
-using Aplicacion.Features.ClientePago.Commands;
-using Aplicacion.Features.ClientePago.Queries;
-using Aplicacion.Features.Qr.Queries;
-using Aplicacion.Features.Sucursal.Queries;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

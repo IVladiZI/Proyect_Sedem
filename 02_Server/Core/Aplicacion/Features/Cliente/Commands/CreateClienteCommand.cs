@@ -1,14 +1,9 @@
-﻿using Aplicacion.DTOs;
-using Aplicacion.DTOs.Cliente;
+﻿using Aplicacion.DTOs.Cliente;
 using Aplicacion.Interfaces;
 using Aplicacion.Wrappers;
 using AutoMapper;
 using Dominio.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,7 +13,7 @@ namespace Aplicacion.Features.Cliente.Commands
 
     public class CreateClienteCommand : IRequest<Response<int>>
     {
-        public  FcClienteDto Cliente { get; set; }
+        public FcClienteDto FcClienteDto { get; set; }
 
     }
 
@@ -34,7 +29,7 @@ namespace Aplicacion.Features.Cliente.Commands
 
         public async Task<Response<int>> Handle(CreateClienteCommand request, CancellationToken cancellationToken)
         {
-            var nuevoRegistro = _mapper.Map<FcCliente>(request.Cliente);
+            var nuevoRegistro = _mapper.Map<FcCliente>(request.FcClienteDto);
             var data = await _repositoryAsync.AddAsync(nuevoRegistro);
             return new Response<int>(data.IdfcCliente);
         }
