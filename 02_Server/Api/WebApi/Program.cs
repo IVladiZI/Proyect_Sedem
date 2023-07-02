@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Webapi
 {
-    public class Program
+	public class Program
 	{
 		public static Task Main(string[] args)
         {

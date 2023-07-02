@@ -16,23 +16,23 @@ using System.Threading.Tasks;
 
 namespace Aplicacion.Features.Qr.Queries
 {
-    public class GetAllQrQuery : IRequest<Response<List<QrClienteDto>>>
+    public class GetAllQrQuery : IRequest<Response<List<FcQrClienteDto>>>
     {
-        public class GetAllQrQueryHandler : IRequestHandler<GetAllQrQuery, Response<List<QrClienteDto>>>
+        public class GetAllQrQueryHandler : IRequestHandler<GetAllQrQuery, Response<List<FcQrClienteDto>>>
         {
-            private readonly IRepositoryAsync<FcQr> _repositoryAsync;
+            private readonly IRepositoryAsync<FcQrCliente> _repositoryAsync;
             private readonly IMapper _mapper;
-            public GetAllQrQueryHandler(IRepositoryAsync<FcQr> repositoryAsync, IMapper mapper)
+            public GetAllQrQueryHandler(IRepositoryAsync<FcQrCliente> repositoryAsync, IMapper mapper)
             {
                 _repositoryAsync = repositoryAsync;
                 _mapper = mapper;
             }
 
-            public async Task<Response<List<QrClienteDto>>> Handle(GetAllQrQuery request, CancellationToken cancellationToken)
+            public async Task<Response<List<FcQrClienteDto>>> Handle(GetAllQrQuery request, CancellationToken cancellationToken)
             {
                 var _Qr = await _repositoryAsync.ListAsync();
-                var _QrDto = _mapper.Map<List<QrClienteDto>>(_Qr);
-                return new Response<List<QrClienteDto>>(_QrDto);
+                var _QrDto = _mapper.Map<List<FcQrClienteDto>>(_Qr);
+                return new Response<List<FcQrClienteDto>>(_QrDto);
             }
         }
     }    

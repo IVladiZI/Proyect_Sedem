@@ -1,11 +1,12 @@
 ﻿using Aplicacion.DTOs.Segurity;
 using Dominio.Entities.Qr;
 using System.Threading.Tasks;
+using static Dominio.Entities.Qr.ResponseXml;
 
 namespace Aplicacion.Interfaces.Repositories
 {
     public interface IPaymentQr
     {
-        string GenerateQr(string fcQrGenerate);
+        Signature GenerateQr(FcQrCliente fcQrCliente);
     }
 }

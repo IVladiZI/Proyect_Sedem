@@ -7,7 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using State = Infraestructura.Abstract.State;
 
-
 namespace Server.Pages.Cliente
 {
     public partial class Cliente
@@ -21,7 +20,7 @@ namespace Server.Pages.Cliente
         private bool hover = true;
         private bool striped = true;
         private bool bordered = true;
-
+        
         protected override async void OnInitialized()
         {
             await GetCliente();
@@ -105,7 +104,7 @@ namespace Server.Pages.Cliente
             try
             {
                 _Loading.Show();
-                var vrespost = await _Rest.PostAsync<int?>("FcCliente", new { cliente = _ClienteNuevo });
+                var vrespost = await _Rest.PostAsync<int?>("FcCliente", new { fcClienteDto = _ClienteNuevo });
                 _Loading.Hide();
                 _MessageShow(vrespost.Message, vrespost.State);
 

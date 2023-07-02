@@ -14,74 +14,34 @@ namespace Server.Pages.Pagos
         public string SubmitedUrl { get; set; }
         public string QRCodeText { get; set; }
 
-        public QrClienteDto _qrClienteDto { get; set; }
-        public FcClientePagoDto _fcClientePagoDto = new FcClientePagoDto();
+        public FcQrClienteDto fcQrClienteDto = new();
         [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-        [Parameter] public FcClienteDto fcClienteDto { get; set; }
+        [Parameter] public FcClienteDto FcClienteDto { get; set; }
         protected override void OnInitialized()
         {
-            _fcClientePagoDto.Detalle = fcClienteDto.Cliente;
-            _fcClientePagoDto.Monto = (Decimal)fcClienteDto.Cantidad * 2250;
-            _fcClientePagoDto.IdfcCliente = fcClienteDto.IdfcCliente;
-            _fcClientePagoDto.FechaPago = DateTime.Now;
-            _fcClientePagoDto.Estado = "Proceso";
-        }
-        private async Task ClientePagoNuevo()
-        {
-            await Save();
-
+            fcQrClienteDto.IdfcCliente = FcClienteDto.IdfcCliente;
+            fcQrClienteDto.QrGlosa = FcClienteDto.Cliente;
+            fcQrClienteDto.QrMonto = (Decimal)FcClienteDto.Cantidad * 2250;
         }
         private async Task QrPayment()
         {
             try
             {
                 _Loading.Show();
-                var vrespost = await _Qr.PostAsync<string>("QrClienet", _qrClienteDto);
-                QRCodeText = vrespost.ToString();
+                var vrespost = await _QrRest.PostAsync<string>("FcQrCliente", new { fcQrClienteDto = fcQrClienteDto });
                 _Loading.Hide();
-                _MessageShow(vrespost.Message, vrespost.State);
-
+                
+                
                 if (vrespost.State != State.Success)
                 {
-                    vrespost.Errors.ForEach(x =>
-                    {
-                        _MessageShow(x, State.Warning);
-                    });
+                    _MessageShow(vrespost.Message, State.Warning);
                     MudDialog.Close(DialogResult.Ok(true));
                     return;
                 }
                 else
                 {
-                    _MessageShow("Se registro Correctamente..", State.Success);
-                }
-            }
-            catch (Exception e)
-            {
-                _Loading.Hide();
-                _MessageShow(e.Message, State.Error);
-            }
-        }
-        protected async Task Save()
-        {
-            try
-            {
-                _Loading.Show();
-                var vrespost = await _Rest.PostAsync<int?>("FcClientePago", new { fcClientePagoDto = _fcClientePagoDto });
-                _Loading.Hide();
-                _MessageShow(vrespost.Message, vrespost.State);
-
-                if (vrespost.State != State.Success)
-                {
-                    vrespost.Errors.ForEach(x =>
-                    {
-                        _MessageShow(x, State.Warning);
-                    });
-                    MudDialog.Close(DialogResult.Ok(true));
-                    return;
-                }
-                else
-                {
-                    _MessageShow("Se registro Correctamente..", State.Success);
+                    QRCodeText = vrespost.Data;
+                    StateHasChanged();
                 }
             }
             catch (Exception e)

@@ -1,4 +1,5 @@
-﻿using Aplicacion.Features.Qr.Commands;
+﻿using Aplicacion.Features.Cliente.Queries;
+using Aplicacion.Features.Qr.Commands;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -8,13 +9,13 @@ namespace WebApi.Controllers.v1.Qr
 {
     [ApiVersion("1.0")]
     [Authorize]
-    public class QrClienteController : BaseApiController
+    public class FcQrClienteController : BaseApiController
     {
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> GenerateQr(CreateQrCommand createQrCommand)
+        public async Task<IActionResult> Post(CreateQrCommand command)
         {
-            return Ok(await Mediator.Send(createQrCommand));
+            return Ok(await Mediator.Send(command));
         }
     }
 }

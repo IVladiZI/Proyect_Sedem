@@ -18,7 +18,7 @@ namespace Persistencia.Contexts
         #region DbSets
         public DbSet<FcCliente> Cliente { get; set; }
         public DbSet<FcSucursal> Sucursal { get; set; }
-        public DbSet<FcQr> QrClientes { get; set; }
+        public DbSet<FcQrCliente> QrClientes { get; set; }
         public DbSet<FcClientePago> fcClientePagos { get; set; }
         #endregion
 

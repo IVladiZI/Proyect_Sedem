@@ -9,7 +9,7 @@ namespace Aplicacion.Services.MethodsPayment
 {
     public class PaymentQr : IPaymentQr
     {
-        public string GenerateQr(string content)
+        public Signature GenerateQr(FcQrCliente fcQrCliente)
         {
             try
             {
@@ -33,9 +33,9 @@ namespace Aplicacion.Services.MethodsPayment
                 RequestGetQr requestGetQr = new()
                 {
                     Account = "10000026017645",
-                    Amount = "6000",
+                    Amount = fcQrCliente.QrMonto.ToString(),
                     Currency = "BOB",
-                    Reference = "Subsidio Prenatal-Banco de Credito",
+                    Reference = fcQrCliente.QrGlosa,
                     Valid = "S",
                     FormatQr = "1",
                     Items = items
@@ -50,8 +50,7 @@ namespace Aplicacion.Services.MethodsPayment
                 string xmlSigned = manager.KeyXml(xmlRequest);
                 string response = manager.Conection(xmlSigned);
                 Signature signatureMethod = function.ConvertXmlToObject<Signature>(response);
-                return response;
-
+                return signatureMethod;
             }
             catch (Exception e)
             {
