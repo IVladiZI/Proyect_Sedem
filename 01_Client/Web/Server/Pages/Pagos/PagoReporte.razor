@@ -13,10 +13,8 @@
             <MudButton OnClick="Cancel" Color="Color.Info">Cancel</MudButton>
         </DialogActions>
         <DialogContent>
-            <MudContainer Style="max-height: 300px; max-width: 500px; overflow-y: scroll" Fixed="true">
-
-                <MudTable Items="@fcClientePagos" Style="max-height: 300px; max-width: 500px;" Class="clm-row-small">
-
+            <MudContainer Style="max-height: 500px; max-width: 500px; overflow-y: scroll" Fixed="true">      
+                <MudTable Items="@fcClientePagos" FixedHeader="true" FixedFooter="true" Height="@(true || true ?"400px":"")">
                     <HeaderContent>
                         <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.IdfcCliente)"> Nr Cliente </MudTableSortLabel></MudTh>
                         <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.IdQrCliente)"> Nr QR </MudTableSortLabel></MudTh>
@@ -58,8 +56,6 @@
                         </MudTd>
                     </RowTemplate>
                 </MudTable>
-
-
             </MudContainer>
         </DialogContent>
         
