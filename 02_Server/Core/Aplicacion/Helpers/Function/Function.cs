@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Aplicacion.Interfaces;
+using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Dominio.Common.Function
+namespace Aplicacion.Helpers.Function
 {
-    public class Function
+    public class Function : IFunction
     {
         public string SerializeToString<T>(T value)
         {
@@ -38,7 +39,27 @@ namespace Dominio.Common.Function
             {
                 throw e;
             }
-            
+
+        }
+        public DateTime DateExpirationQr(string value)
+        {
+            switch (value)
+            {
+                case "U":
+                    return DateTime.Now.AddDays(7);
+                case "D":
+                    return DateTime.Now.AddDays(1);
+                case "C":
+                    return DateTime.Now.AddDays(1);
+                case "S":
+                    return DateTime.Now.AddDays(7);
+                case "M":
+                    return DateTime.Now.AddMonths(1);
+                case "A":
+                    return DateTime.Now.AddYears(1);
+                default:
+                    return DateTime.Now.AddDays(1);
+            }
         }
     }
 }

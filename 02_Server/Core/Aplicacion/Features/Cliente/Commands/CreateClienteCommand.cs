@@ -14,7 +14,6 @@ namespace Aplicacion.Features.Cliente.Commands
     public class CreateClienteCommand : IRequest<Response<int>>
     {
         public FcClienteDto FcClienteDto { get; set; }
-
     }
 
     public class CreateClienteCommandHandler : IRequestHandler<CreateClienteCommand, Response<int>>

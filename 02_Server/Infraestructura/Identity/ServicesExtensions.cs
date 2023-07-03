@@ -29,7 +29,6 @@ namespace Identity
                            options.UseNpgsql(
                                configuration.GetConnectionString("IdentityConnection"),
                                b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
-
             servicies.AddDbContext<SegurityContext>(options =>
                             options.UseNpgsql(
                                 configuration.GetConnectionString("SegurityConnection")

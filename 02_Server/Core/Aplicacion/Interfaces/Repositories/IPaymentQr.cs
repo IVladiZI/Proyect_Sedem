@@ -1,6 +1,4 @@
-﻿using Aplicacion.DTOs.Segurity;
-using Dominio.Entities.Qr;
-using System.Threading.Tasks;
+﻿using Dominio.Entities.Qr;
 using static Dominio.Entities.Qr.ResponseXml;
 
 namespace Aplicacion.Interfaces.Repositories

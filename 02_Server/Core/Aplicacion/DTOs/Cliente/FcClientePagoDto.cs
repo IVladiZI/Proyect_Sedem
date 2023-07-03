@@ -4,13 +4,14 @@ namespace Aplicacion.DTOs.Cliente
 {
     public class FcClientePagoDto
     {
-        public int IdfcClientePago { get; set; }
-        //[ForeignKey("IdfcCliente")]
+        public int IdQrCliente { get; set; }
         public int IdfcCliente { get; set; }
-        public string Detalle { get; set; }
-        public string Glosa { get; set; }
-        public decimal Monto { get; set; }
-        public DateTime? FechaPago { get; set; }
-        public string Estado { get; set; }
+        public string IdQrGenerado { get; set; }
+        public string QrGlosa { get; set; }
+        public decimal QrMonto { get; set; }
+        public DateTime? QrFechaPago { get; set; }
+        public string QrEstado { get; set; }
+        public string QrMensaje { get; set; }
+        public DateTime? QrExpiracion { get; set; }
     }
 }

@@ -22,6 +22,7 @@ namespace Aplicacion.Mappings
             CreateMap<FcClientePago, FcClientePagoDto>();
             CreateMap<FcSucursal, FcSucursalDto>();
             CreateMap<FcQrCliente, FcQrClienteDto>();
+            CreateMap<FcQrCliente, FcClientePagoDto>();
             /**///**
             #endregion
 

@@ -4,6 +4,7 @@ using Aplicacion.Wrappers;
 using AutoMapper;
 using Dominio.Entities;
 using Dominio.Entities.Facturacion;
+using Dominio.Entities.Qr;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,9 @@ namespace Aplicacion.Features.ClientePago.Queries
     {
         public class GetAllClientePagoQueryHandler : IRequestHandler<GetAllClientePagoQuery, Response<List<FcClientePagoDto>>>
         {
-            private readonly IRepositoryAsync<FcClientePago> _repositoryAsync;
+            private readonly IRepositoryAsync<FcQrCliente> _repositoryAsync;
             private readonly IMapper _mapper;
-            public GetAllClientePagoQueryHandler(IRepositoryAsync<FcClientePago> repositoryAsync, IMapper mapper)
+            public GetAllClientePagoQueryHandler(IRepositoryAsync<FcQrCliente> repositoryAsync, IMapper mapper)
             {
                 _repositoryAsync = repositoryAsync;
                 _mapper = mapper;

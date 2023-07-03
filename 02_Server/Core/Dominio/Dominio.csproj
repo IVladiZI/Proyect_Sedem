@@ -12,20 +12,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Entities\Aplicacion\Proceso\**" />
+    <Compile Remove="Entities\Aplicacion\**" />
+    <Compile Remove="Entities\SoapServicios\**" />
     <Compile Remove="temp\**" />
-    <EmbeddedResource Remove="Entities\Aplicacion\Proceso\**" />
+    <EmbeddedResource Remove="Entities\Aplicacion\**" />
+    <EmbeddedResource Remove="Entities\SoapServicios\**" />
     <EmbeddedResource Remove="temp\**" />
-    <None Remove="Entities\Aplicacion\Proceso\**" />
+    <None Remove="Entities\Aplicacion\**" />
+    <None Remove="Entities\SoapServicios\**" />
     <None Remove="temp\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Class1.cs" />
     <Compile Remove="Entities\AlmvDistribucion.cs" />
-    <Compile Remove="Entities\Aplicacion\Planificacion\SubPlanificacion.cs" />
-    <Compile Remove="Entities\Aplicacion\Planificacion\SubPlanificaciondetalle.cs" />
-    <Compile Remove="Entities\Aplicacion\Planificacion\SubPlanificacionhijo.cs" />
     <Compile Remove="Entities\APPSUBContext.cs" />
     <Compile Remove="Entities\BioEnrolado.cs" />
     <Compile Remove="Entities\BioProductosubsidiocanales.cs" />
@@ -135,13 +135,6 @@
     <Compile Remove="Entities\Vvalor.cs" />
     <Compile Remove="Entities\Vvmonto.cs" />
     <Compile Remove="Entities\Vvmontos.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entities\Aplicacion\Planificacion\" />
-    <Folder Include="Entities\SoapServicios\BancoUnion\" />
-    <Folder Include="Entities\SoapServicios\Segip\" />
-    <Folder Include="temp\" />
   </ItemGroup>
 
 </Project>

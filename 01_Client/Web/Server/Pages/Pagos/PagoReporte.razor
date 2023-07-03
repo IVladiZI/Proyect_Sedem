@@ -6,52 +6,65 @@
 @inject IJSRuntime JSRuntime
 
 
-<MudExpansionPanels>
-    <MudCard>
-        <MudDialogProvider FullWidth="true"
-                   MaxWidth="MaxWidth.ExtraSmall"
-                   CloseButton="true"
-                   DisableBackdropClick="true"
-                   NoHeader="true"
-                   Position="DialogPosition.Center"
-                   CloseOnEscapeKey="true" />
-        <MudDialog>
-            <DialogContent>
-                <MudCardContent>
-                    <MudTable Items="@fcClientePagos" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped">
-                        <HeaderContent>
-                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.IdfcClientePago)"> Nr° </MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Detalle)">Detalle Pago</MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Glosa)">Glosa</MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Monto)">Monto Cancelado</MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.FechaPago)">Fecha de Pago</MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.Estado)">Estado de Pago</MudTableSortLabel></MudTh>
-                        </HeaderContent>
-                        <RowTemplate>
-                            <MudTd Style="width:40px">
-                                <MudText Typo="Typo.caption">@context.IdfcClientePago</MudText><br />
-                            </MudTd>
-                            <MudTd>
-                                <MudText Typo="Typo.caption">@context.Detalle</MudText><br />
-                            </MudTd>
-                            <MudTd>
-                                <MudText Typo="Typo.caption">@context.Glosa</MudText><br />
-                            </MudTd>
-                            <MudTd>
-                                <MudText Typo="Typo.caption">@context.Monto</MudText><br />
-                            </MudTd>
-                            <MudTd>
-                                <MudText Typo="Typo.caption">@context.FechaPago</MudText><br />
-                            </MudTd>
-                            <MudTd>
-                                <MudText Typo="Typo.caption">@context.Estado</MudText><br />
-                            </MudTd>
-                        </RowTemplate>
-                    </MudTable>
-                </MudCardContent>
-            </DialogContent>
-            <DialogActions>
-            </DialogActions>
-        </MudDialog>
-    </MudCard>
-</MudExpansionPanels>
+
+<div id="content">
+    <MudDialog DisableSidePadding="true">
+        <DialogActions>
+            <MudButton OnClick="Cancel" Color="Color.Info">Cancel</MudButton>
+        </DialogActions>
+        <DialogContent>
+            <MudContainer Style="max-height: 300px; max-width: 500px; overflow-y: scroll" Fixed="true">
+
+                <MudTable Items="@fcClientePagos" Style="max-height: 300px; max-width: 500px;" Class="clm-row-small">
+
+                    <HeaderContent>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.IdfcCliente)"> Nr Cliente </MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.IdQrCliente)"> Nr QR </MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.IdQrGenerado)">Id QR Generado</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.QrGlosa)">Glosa</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.QrMonto)">Monto Cancelado</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.QrEstado)">Estado de Pago</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.QrFechaPago)">Fecha de Pago</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.QrExpiracion)">Fecha de Expiración QR</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel SortBy="new Func<FcClientePagoDto, object>(x=>x.QrMensaje)">Mensaje Servicio</MudTableSortLabel></MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd Style="width:10px">
+                            <MudText Typo="Typo.caption">@context.IdfcCliente</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.IdQrCliente</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.IdQrGenerado</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.QrGlosa</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.QrMonto</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.QrEstado</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.QrFechaPago</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.QrExpiracion</MudText><br />
+                        </MudTd>
+                        <MudTd>
+                            <MudText Typo="Typo.caption">@context.QrMensaje</MudText><br />
+                        </MudTd>
+                    </RowTemplate>
+                </MudTable>
+
+
+            </MudContainer>
+        </DialogContent>
+        
+        
+
+    </MudDialog>
+</div>
+

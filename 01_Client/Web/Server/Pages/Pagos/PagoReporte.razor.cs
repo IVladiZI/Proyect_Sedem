@@ -10,7 +10,7 @@ namespace Server.Pages.Pagos
     public partial class PagoReporte
     {
         private static List<FcClientePagoDto> fcClientePagos { get; set; }
-        public FcClientePagoDto FcClientePagoDto = new();
+        //public FcClientePagoDto FcClientePagoDto = new();
         [CascadingParameter] MudDialogInstance MudDialog { get; set; }
         [Parameter] public int IdfcCliente { get; set; }
 
@@ -34,6 +34,7 @@ namespace Server.Pages.Pagos
                     _DialogShow(_result.Message, _result.State);
                 }
                 fcClientePagos = _result.Data;
+                StateHasChanged();
             }
             catch (Exception e)
             {

@@ -12,6 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repository\Custom\**" />
+    <EmbeddedResource Remove="Repository\Custom\**" />
+    <None Remove="Repository\Custom\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Class1.cs" />
     <Compile Remove="Repository\Common\Aplicacion\Class1.cs" />
   </ItemGroup>
@@ -28,10 +34,6 @@
     <ProjectReference Include="..\..\Core\Dominio\Dominio.csproj" />
     <ProjectReference Include="..\Identity\Identity.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repository\Custom\" />
   </ItemGroup>
 
 </Project>

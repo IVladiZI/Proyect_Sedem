@@ -17,12 +17,9 @@ namespace Persistencia.Repository.Common.Aplicacion
     public class AppRepositoryAsync<T> : RepositoryBase<T>, IRepositoryAsync<T> where T : class
     {
         private readonly AplicationDbContext _dbContext;
-     
-
         public AppRepositoryAsync(AplicationDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
-          
         }
 	
 		public async Task<List<T>> CallFunctionReFCursor(string nameFunction, params object[] param)

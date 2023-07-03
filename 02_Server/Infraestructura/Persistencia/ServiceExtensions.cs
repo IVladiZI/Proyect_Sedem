@@ -19,7 +19,7 @@ namespace Persistencia
             services.AddDbContext<AplicationDbContext>(options =>
                                                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"))
                                                         .UseSnakeCaseNamingConvention());
-            
+
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(AppRepositoryAsync<>));           
             services.AddTransient<ISegurityRepository, SegurityRepository>();
             services.AddTransient<IUnitOfWork, AppUnitOfWork>();

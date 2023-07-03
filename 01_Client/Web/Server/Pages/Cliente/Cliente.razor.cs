@@ -168,12 +168,16 @@ namespace Server.Pages.Cliente
             }
             
         }
-        public void AbrirReportePago(int IdfcCliente)
+        public void AbrirReportePago()
         {
             try
             {
-                dialogParameters.Add("IdfcCliente", IdfcCliente);
-                var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+                var options = new DialogOptions()
+                {
+                    MaxWidth = MaxWidth.Medium,
+                    FullWidth = true,
+                    Position = DialogPosition.TopCenter
+                };
                 DialogService.Show<PagoReporte>("Reporte Pagos", dialogParameters, options);
             }
             catch (Exception ex)

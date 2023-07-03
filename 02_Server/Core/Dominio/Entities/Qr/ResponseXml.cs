@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace Dominio.Entities.Qr
 {
@@ -113,6 +114,8 @@ namespace Dominio.Entities.Qr
 
             [XmlElement(ElementName = "Message", Namespace = "")]
             public string Message;
+            [XmlIgnore]
+            public DateTime Expiration;
         }
 
         [XmlRoot(ElementName = "ResponseData", Namespace = "")]

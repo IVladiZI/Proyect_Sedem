@@ -30,6 +30,9 @@
                 <MudCardActions>
 
                     <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success">Guardar</MudButton>
+                    <MudFab Color="Color.Secondary" Style="@($"background:{Colors.Blue.Accent4};")" StartIcon="@Icons.Material.Filled.AutoStories" Variant="Variant.Filled" Icon="@Icons.Material.Filled.AutoStories" Size="Size.Small" OnClick="@(() => AbrirReportePago())" /><MudText Typo="Typo.caption"></MudText>
+
+
                 </MudCardActions>
 
                 @* </DataAnnotationsValidator>*@
@@ -74,9 +77,6 @@
                                 </MudTooltip>
                                 <MudTooltip Text="Pagar" Color="Color.Secondary" Placement="Placement.Top">
                                     <MudFab Color="Color.Secondary" Style="@($"background:{Colors.LightBlue.Accent4};")" StartIcon="@Icons.Material.Filled.Payment" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Payment" Size="Size.Small" OnClick="@(() => AbrirMetodoPago(context))" /><MudText Typo="Typo.caption"></MudText>
-                                </MudTooltip>
-                                <MudTooltip Text="Reporte Pagos" Color="Color.Secondary" Placement="Placement.Top">
-                                    <MudFab Color="Color.Secondary" Style="@($"background:{Colors.Blue.Accent4};")" StartIcon="@Icons.Material.Filled.AutoStories" Variant="Variant.Filled" Icon="@Icons.Material.Filled.AutoStories" Size="Size.Small" OnClick="@(() => AbrirReportePago(context.IdfcCliente))" /><MudText Typo="Typo.caption"></MudText>
                                 </MudTooltip>
                                 <MudTooltip Text="Eliminar" Color="Color.Secondary" Placement="Placement.Top">
                                     <MudFab Color="Color.Secondary" Style="@($"background:{Colors.Red.Accent4};")" StartIcon="@Icons.Material.Filled.Delete" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="@(() => Eliminar(context.IdfcCliente))" /><MudText Typo="Typo.caption"></MudText>
